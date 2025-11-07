@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Account - Smart Hotel Reservation and Management System</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- ===== SIDEBAR ===== -->
+  <div class="sidebar">
+    <ul class="menu">
+      <li><a href="homepage.html">Home</a></li>
+      <li><a href="rooms.html">Rooms</a></li>
+      <li><a href="bookings.html">Bookings</a></li>
+      <li><a href="account.html" class="active">Account</a></li>
+      <li><a href="#">Logout</a></li>
+    </ul>
+  </div>
+
+  <!-- ===== HEADER BAR ===== -->
+  <div class="main-header">
+    <div class="logo">
+      <img src="images/easehotel.png" alt="Hotelogo">
+    </div>
+    <div class="user-info">
+      <img src="images/profile.JPG" alt="User" class="profile-pic">
+    </div>
+  </div>
+
+  <!-- ===== CONTENT AREA ===== -->
+  <div class="content">
+    <div class="account-section">
+      <div class="account-top">
+        <div class="profile-summary">
+          <img src="images/profile.JPG" alt="Profile" class="account-pic">
+          <div>
+            <h2>Chrispinus Wanyama</h2>
+            <p>wanyama@gmail.com</p>
+          </div>
+        </div>
+      </div>
+
+      <form class="account-form">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" value="Chrispinus Wanyama" readonly>
+        </div>
+
+        <div class="form-group">
+          <label>ID Number</label>
+          <input type="number" value="11111111" readonly>
+        </div>
+
+        <div class="form-group">
+          <label>Gender</label>
+          <select disabled>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Country</label>
+          <input type="text" value="Kenya" readonly>
+        </div>
+
+        <div class="form-group">
+          <label>Language</label>
+          <select disabled>
+            <option>English</option>
+            <option>Swahili</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Time Zone</label>
+          <input type="text" value="GMT +3 (Nairobi)" readonly>
+        </div>
+      </form>
+
+      <div class="email-section">
+        <h3>My Email Address</h3>
+        <div class="email-card">
+          <div>
+            <p>wanyama@gmail.com</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-section">
+        <button class="edit-btn" id="editBtn">Edit</button>
+        <button class="save-btn" id="saveBtn" disabled>Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== INLINE SCRIPT ===== -->
+  <script>
+    const editBtn = document.getElementById('editBtn');
+    const saveBtn = document.getElementById('saveBtn');
+    const inputs = document.querySelectorAll('.account-form input');
+    const selects = document.querySelectorAll('.account-form select');
+
+    editBtn.addEventListener('click', () => {
+      inputs.forEach(input => input.removeAttribute('readonly'));
+      selects.forEach(select => select.removeAttribute('disabled'));
+      saveBtn.disabled = false;
+      editBtn.disabled = true;
+    });
+
+    saveBtn.addEventListener('click', () => {
+      inputs.forEach(input => input.setAttribute('readonly', true));
+      selects.forEach(select => select.setAttribute('disabled', true));
+      saveBtn.disabled = true;
+      editBtn.disabled = false;
+    });
+  </script>
+</body>
+</html>
